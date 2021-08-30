@@ -92,32 +92,44 @@ int main() {
 
     for(unsigned int i = 0; i < (l-1)/4; i++)
     {
+        bool swapped = false;
         for(unsigned int j = 0; j < l - 4*i - 4; j++)
         {
             vector<int> subvector = {N_in.begin()+j, N_in.begin()+j+5};
+            vector<int> sub_copy = subvector;
             sort_5(subvector);
-            for(unsigned int x = j; x < j+5; x++)
-            {   
-                N_in[x]=subvector[x-j];
+            if(subvector != sub_copy)
+            {
+                swapped = true;
+                for(unsigned int x = j; x < j+5; x++)
+                {   
+                    N_in[x]=subvector[x-j];
+                }
             }
             // for(unsigned int i = 0; i < l; i++)
             // {   
             //     cout << N_in[i] << " ";  
             // }
         }
-        if (((l-1)/4)*4 != l-1)
+        if(swapped == false)
         {
-            vector<int> subvector = {N_in.begin(), N_in.begin()+5};
-            sort_5(subvector);
-            for(unsigned int x = 0; x < 5; x++)
-            {   
-                N_in[x]=subvector[x];
-            }
+            break;
         }
     }
+    if (((l-1)/4)*4 != l-1)
+    {
+        vector<int> subvector = {N_in.begin(), N_in.begin()+5};
+        sort_5(subvector);
+        for(unsigned int x = 0; x < 5; x++)
+        {   
+            N_in[x]=subvector[x];
+        }
+    }
+    
 
     for(unsigned int i = 0; i < l; i++)
     {   
         cout << N_in[i] << " ";  
     }
+    return 0;
 }
