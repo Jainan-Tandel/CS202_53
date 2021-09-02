@@ -2,19 +2,14 @@
 #include <vector>
 using namespace std;
 
-void swap(int *a, int *b)
-{
-    *a = *b + *a;
-    *b = *a - *b;
-    *a = *a - *b;
-}
-
 void opposite_sort(int A[], int n){
     for(unsigned int i = 0; i < n/2; i++ )
     {
         if(A[i] > A[n-i-1])
         {
-            swap(&A[i],&A[n-i-1]);
+            A[i] = A[i] + A[n-i-1];
+            A[n-i-1] = A[i] - A[n-i-1];
+            A[i] = A[i] - A[n-i-1];
         }
     }
 }
