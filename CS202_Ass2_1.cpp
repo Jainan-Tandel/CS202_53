@@ -27,16 +27,6 @@ int main() {
     As.push_back(Be[m]);
     Bs.push_back(Ae[n]);
 
-
-    for(unsigned int i = 0; i < n; i++)
-    {
-        cout << As[i] << " " << Ae[i] << "\n";
-    }
-
-    for(unsigned int i = 0; i < m; i++)
-    {
-        cout << Bs[i] << " " << Be[i] << "\n";
-    }
     unsigned long int minim = min(As[0], Bs[0]);
     unsigned long int maxim = max(Ae[n-1], Be[m-1]);
 
