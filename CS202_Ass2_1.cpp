@@ -94,12 +94,9 @@ int main() {
         {
             //cout << "Jumping to next A interval\n";
             counter=Ae[A_index] + 1;
-            if(B_index < m)
+            while(B_index < m && Be[B_index]<counter)
             {
-                while(Be[B_index]<counter)
-                {  
-                    B_index+=1;
-                }
+                B_index+=1;
             }
             A_index+=1;
         }
@@ -107,12 +104,9 @@ int main() {
         {
             //cout << "Jumping to next B interval\n";
             counter=Be[B_index] + 1;
-            if(A_index < n)
+            while(A_index < n && Ae[A_index]<counter)
             {
-                while(Ae[A_index]<counter)
-                {
-                    A_index+=1;
-                }
+                A_index+=1;
             }
             B_index+=1;
         }
